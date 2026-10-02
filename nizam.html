@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nizam Zaidan Raditya | Football AMF Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter & Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        persib: {
+                            50: '#f0f6ff',
+                            500: '#00468c',
+                            600: '#003366',
+                            700: '#002244',
+                            900: '#001326',
+                        },
+                        accent: {
+                            gold: '#fbbf24',
+                            light: '#38bdf8'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #001326;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #00468c;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb-hover {
+            background: #38bdf8;
+        }
+        .persib-glow {
+            box-shadow: 0 0 30px rgba(0, 70, 140, 0.4);
+        }
+        .gold-glow {
+            box-shadow: 0 0 25px rgba(251, 191, 36, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-persib-900 text-gray-100 font-sans antialiased selection:bg-persib-500 selection:text-white">
+
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-persib-900/90 backdrop-blur-md border-b border-persib-600/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-persib-500 to-accent-light flex items-center justify-center text-white font-black text-lg shadow-lg group-hover:scale-105 transition-transform">
+                    NZ
+                </div>
+                <div>
+                    <span class="block font-extrabold tracking-wider text-white text-base sm:text-lg">NZR #10</span>
+                    <span class="block text-xs text-accent-gold font-semibold tracking-widest uppercase">AMF Playmaker</span>
+                </div>
+            </a>
+            
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
+                <a href="#hero" class="hover:text-accent-light transition-colors">Beranda</a>
+                <a href="#about" class="hover:text-accent-light transition-colors">Profil</a>
+                <a href="#skills" class="hover:text-accent-light transition-colors">Skill AMF</a>
+                <a href="#idol" class="hover:text-accent-light transition-colors">Idola</a>
+                <a href="#dream" class="hover:text-accent-light transition-colors">Persib Bandung</a>
+                <a href="#contact" class="bg-persib-500 hover:bg-persib-600 text-white px-5 py-2.5 rounded-xl font-semibold shadow-md transition-all transform hover:-translate-y-0.5 border border-persib-500/50">Kontak</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-gray-200 hover:text-white focus:outline-none p-2 rounded-lg bg-persib-700/50">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-persib-700 border-b border-persib-600 px-4 pt-2 pb-6 space-y-3">
+            <a href="#hero" class="block py-2 px-3 rounded-lg hover:bg-persib-600 font-medium">Beranda</a>
+            <a href="#about" class="block py-2 px-3 rounded-lg hover:bg-persib-600 font-medium">Profil</a>
+            <a href="#skills" class="block py-2 px-3 rounded-lg hover:bg-persib-600 font-medium">Skill AMF</a>
+            <a href="#idol" class="block py-2 px-3 rounded-lg hover:bg-persib-600 font-medium">Idola</a>
+            <a href="#dream" class="block py-2 px-3 rounded-lg hover:bg-persib-600 font-medium">Persib Bandung</a>
+            <a href="#contact" class="block text-center py-2.5 px-3 bg-persib-500 text-white font-semibold rounded-lg mt-2">Kontak</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden bg-gradient-to-b from-persib-900 via-persib-700/50 to-persib-900">
+        <!-- Background Glow Orbs -->
+        <div class="absolute top-1/4 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-10 w-96 h-96 bg-accent-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Hero Text -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 bg-persib-700/60 border border-persib-500/40 px-4 py-2 rounded-full text-accent-gold text-sm font-semibold shadow-inner">
+                        <i class="fa-solid fa-futbol text-accent-gold"></i>
+                        <span>Anak SMK & Calon Gelandang Serang Profesional</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white uppercase leading-none">
+                        NIZAM ZAIDAN <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-light to-accent-gold">RADITYA</span>
+                    </h1>
+
+                    <p class="text-gray-300 text-lg sm:text-xl max-w-2xl mx-auto lg:mx-0 font-normal">
+                        Kreator serangan di lini tengah dengan visi tajam. Berdedikasi tinggi sebagai pelajar SMK yang siap menembus impian mengenakan jersey kebanggaan <span class="text-white font-semibold">Persib Bandung</span>!
+                    </p>
+
+                    <!-- Quick Highlights Badges -->
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-2">
+                        <div class="bg-persib-700/60 border border-persib-500/40 px-4 py-3 rounded-2xl flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-xl bg-persib-500/30 text-accent-light flex items-center justify-center font-bold">
+                                <i class="fa-solid fa-school"></i>
+                            </div>
+                            <div class="text-left">
+                                <span class="block text-xs text-gray-400">Status Pelajar</span>
+                                <span class="font-bold text-white">Anak SMK Aktif</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-persib-700/60 border border-persib-500/40 px-4 py-3 rounded-2xl flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-xl bg-accent-gold/20 text-accent-gold flex items-center justify-center font-bold">
+                                <i class="fa-solid fa-chess-knight"></i>
+                            </div>
+                            <div class="text-left">
+                                <span class="block text-xs text-gray-400">Posisi Lapangan</span>
+                                <span class="font-bold text-white">AMF (#10)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Call to Actions -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#about" class="w-full sm:w-auto text-center px-8 py-4 bg-gradient-to-r from-persib-500 to-persib-600 hover:from-persib-600 hover:to-persib-700 text-white font-bold rounded-2xl shadow-lg persib-glow transition-all transform hover:-translate-y-1">
+                            Eksplor Profil Saya <i class="fa-solid fa-arrow-down ml-2"></i>
+                        </a>
+                        <a href="#dream" class="w-full sm:w-auto text-center px-8 py-4 bg-persib-700/60 hover:bg-persib-700 border border-persib-500/40 text-white font-bold rounded-2xl transition-all">
+                            Cita-Cita Persib <i class="fa-solid fa-star ml-2 text-accent-gold"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Hero Card / Visual with User Photo -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-persib-500 to-accent-gold rounded-3xl blur-lg opacity-30 animate-pulse"></div>
+                        
+                        <div class="relative bg-persib-700/40 backdrop-blur-xl border border-persib-500/40 rounded-3xl p-6 sm:p-8 shadow-2xl overflow-hidden">
+                            <div class="absolute -right-4 -bottom-8 text-9xl font-black text-persib-500/10 select-none pointer-events-none">
+                                10
+                            </div>
+
+                            <div class="flex items-center justify-between mb-6">
+                                <span class="bg-persib-500/20 text-accent-light text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider border border-persib-500/30">
+                                    Official Player Card
+                                </span>
+                                <span class="text-accent-gold font-bold text-sm flex items-center space-x-1">
+                                    <i class="fa-solid fa-shield-halved"></i> <span>AMF MAESTRO</span>
+                                </span>
+                            </div>
+
+                            <!-- Avatar Box with Nizam's Photo -->
+                            <div class="relative h-72 rounded-2xl bg-gradient-to-br from-persib-900 to-persib-600 border border-persib-500/40 overflow-hidden group shadow-inner mb-6">
+                                <img src="watermarked_img_11844316816291906580.jpg" 
+                                     onerror="this.onerror=null; this.src='https://files.catbox.moe/fg8apy.jpg';" 
+                                     alt="Nizam Zaidan Raditya" 
+                                     class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-persib-900/90 via-transparent to-transparent"></div>
+                                <div class="absolute bottom-4 left-4 right-4 text-center">
+                                    <h3 class="text-xl font-extrabold text-white">Nizam Zaidan Raditya</h3>
+                                    <p class="text-xs text-accent-light font-semibold">Anak SMK & Attacking Midfielder</p>
+                                </div>
+                            </div>
+
+                            <!-- Mini Stats -->
+                            <div class="grid grid-cols-3 gap-3 text-center">
+                                <div class="bg-persib-900/60 p-3 rounded-xl border border-persib-600">
+                                    <span class="block text-xs text-gray-400">Visi Bermain</span>
+                                    <span class="text-lg font-black text-accent-light">98%</span>
+                                </div>
+                                <div class="bg-persib-900/60 p-3 rounded-xl border border-persib-600">
+                                    <span class="block text-xs text-gray-400">Passing</span>
+                                    <span class="text-lg font-black text-accent-gold">Akurat</span>
+                                </div>
+                                <div class="bg-persib-900/60 p-3 rounded-xl border border-persib-600">
+                                    <span class="block text-xs text-gray-400">Kreativitas</span>
+                                    <span class="text-lg font-black text-white">Tinggi</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-24 bg-persib-700/20 border-t border-persib-600/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-accent-light font-bold uppercase tracking-wider text-sm mb-2">Profil Pribadi</h2>
+                <h3 class="text-3xl sm:text-4xl font-black text-white">TENTANG SAYA</h3>
+                <div class="w-20 h-1.5 bg-accent-light mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <!-- Info Box 1 -->
+                <div class="bg-persib-700/40 border border-persib-600/40 rounded-3xl p-8 shadow-xl space-y-6">
+                    <div class="w-14 h-14 rounded-2xl bg-persib-500/30 text-accent-light flex items-center justify-center text-2xl font-bold">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white">Pelajar SMK Berprestasi & Hobi Sepak Bola</h4>
+                    <p class="text-gray-300 leading-relaxed">
+                        Halo! Nama saya <strong class="text-white">Nizam Zaidan Raditya</strong>. Sebagai anak Sekolah Menengah Kejuruan (SMK), saya terbiasa fokus, disiplin, dan memiliki etos kerja tinggi. Di sela-sela waktu belajar, hobi utama saya adalah bermain sepak bola, mengasah teknik di lapangan hijau, dan memahami taktik permainan secara mendalam.
+                    </p>
+                    <div class="flex items-center space-x-4 pt-2 text-gray-300 text-sm">
+                        <div class="flex items-center space-x-2">
+                            <i class="fa-solid fa-check text-accent-light"></i>
+                            <span>Disiplin & Fokus</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fa-solid fa-check text-accent-light"></i>
+                            <span>Semangat Juang Tinggi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Info Box 2: Quick Specs -->
+                <div class="bg-persib-700/40 border border-persib-600/40 rounded-3xl p-8 shadow-xl space-y-6 relative overflow-hidden">
+                    <div class="absolute -right-10 -top-10 w-40 h-40 bg-accent-light/10 rounded-full blur-2xl pointer-events-none"></div>
+                    <div class="w-14 h-14 rounded-2xl bg-accent-gold/20 text-accent-gold flex items-center justify-center text-2xl font-bold">
+                        <i class="fa-solid fa-id-card"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white">Biodata Singkat Pemain</h4>
+                    
+                    <ul class="space-y-3 text-gray-300 text-sm">
+                        <li class="flex justify-between items-center bg-persib-900/60 p-3.5 rounded-xl border border-persib-600/50">
+                            <span class="text-gray-400">Nama Lengkap</span>
+                            <span class="font-bold text-white">Nizam Zaidan Raditya</span>
+                        </li>
+                        <li class="flex justify-between items-center bg-persib-900/60 p-3.5 rounded-xl border border-persib-600/50">
+                            <span class="text-gray-400">Pendidikan</span>
+                            <span class="font-bold text-white">Siswa SMK</span>
+                        </li>
+                        <li class="flex justify-between items-center bg-persib-900/60 p-3.5 rounded-xl border border-persib-600/50">
+                            <span class="text-gray-400">Posisi Favorit</span>
+                            <span class="font-bold text-accent-light">AMF (Attacking Midfielder)</span>
+                        </li>
+                        <li class="flex justify-between items-center bg-persib-900/60 p-3.5 rounded-xl border border-persib-600/50">
+                            <span class="text-gray-400">Cita-Cita Klub</span>
+                            <span class="font-bold text-accent-gold">Persib Bandung</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AMF Skills & Highlights Section -->
+    <section id="skills" class="py-24 bg-persib-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-accent-light font-bold uppercase tracking-wider text-sm mb-2">Posisi Spesialis</h2>
+                <h3 class="text-3xl sm:text-4xl font-black text-white">JIWA SEORANG PLAYMAKER (AMF)</h3>
+                <div class="w-20 h-1.5 bg-accent-light mx-auto mt-4 rounded-full"></div>
+                <p class="text-gray-400 mt-4">Attacking Midfielder adalah otak permainan di lini tengah, menghubungkan pertahanan dan lini serang.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <!-- Skill 1 -->
+                <div class="bg-persib-700/30 border border-persib-600/40 rounded-3xl p-6 hover:border-accent-light/50 transition-all group">
+                    <div class="w-12 h-12 rounded-2xl bg-persib-500/20 text-accent-light flex items-center justify-center text-xl font-bold mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2">Visi Permainan</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Mampu membaca celah pertahanan lawan sebelum bola diterima, memberikan umpan terobosan mematikan ke lini depan.
+                    </p>
+                </div>
+
+                <!-- Skill 2 -->
+                <div class="bg-persib-700/30 border border-persib-600/40 rounded-3xl p-6 hover:border-accent-light/50 transition-all group">
+                    <div class="w-12 h-12 rounded-2xl bg-accent-gold/20 text-accent-gold flex items-center justify-center text-xl font-bold mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-feather"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2">Kontrol Bola & Dribel</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Menjaga penguasaan bola di area ketat lini tengah, melewati pressing ketat pemain lawan dengan lincah.
+                    </p>
+                </div>
+
+                <!-- Skill 3 -->
+                <div class="bg-persib-700/30 border border-persib-600/40 rounded-3xl p-6 hover:border-accent-light/50 transition-all group">
+                    <div class="w-12 h-12 rounded-2xl bg-blue-500/20 text-accent-light flex items-center justify-center text-xl font-bold mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-crosshairs"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2">Passing Akurat</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Distribusi bola pendek maupun panjang yang presisi untuk menjaga tempo dan aliran serangan tim tetap mengalir.
+                    </p>
+                </div>
+
+                <!-- Skill 4 -->
+                <div class="bg-persib-700/30 border border-persib-600/40 rounded-3xl p-6 hover:border-accent-light/50 transition-all group">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl font-bold mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2">Tembakan Jarak Jauh</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Berani melepaskan tendangan keras terarah dari luar kotak penalti saat pertahanan lawan menumpuk di dalam.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Idol Section (Kylian Mbappe with Image) -->
+    <section id="idol" class="py-24 bg-gradient-to-b from-persib-900 via-persib-700/40 to-persib-900 border-t border-persib-600/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-persib-700/40 border border-persib-600/50 rounded-3xl p-8 sm:p-12 shadow-2xl relative overflow-hidden">
+                <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-accent-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <!-- Left Idol Info -->
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="inline-flex items-center space-x-2 bg-accent-gold/10 border border-accent-gold/20 px-4 py-1.5 rounded-full text-accent-gold text-xs font-bold uppercase tracking-wider">
+                            <i class="fa-solid fa-star"></i>
+                            <span>Inspirasi Sepak Bola Dunia</span>
+                        </div>
+
+                        <h2 class="text-3xl sm:text-5xl font-black text-white uppercase leading-tight">
+                            KYLIAN <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-gold to-yellow-200">MBAPPE</span>
+                        </h2>
+
+                        <p class="text-gray-300 text-base sm:text-lg leading-relaxed">
+                            Bagi saya, <strong class="text-white">Kylian Mbappe</strong> adalah lambang kecepatan, ketajaman, dan mentalitas pemenang di lapangan hijau. Etos kerjanya dan rasa percaya diri yang tinggi saat menghadapi laga-laga besar selalu menjadi motivasi utama saya dalam berlatih sepak bola.
+                        </p>
+
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2">
+                            <div class="bg-persib-900/80 p-4 rounded-2xl border border-persib-600">
+                                <span class="block text-xs text-gray-400">Timnas / Klub</span>
+                                <span class="font-bold text-white text-sm">Prancis / Eropa 🇫🇷</span>
+                            </div>
+                            <div class="bg-persib-900/80 p-4 rounded-2xl border border-persib-600">
+                                <span class="block text-xs text-gray-400">Karakteristik</span>
+                                <span class="font-bold text-accent-gold text-sm">Kecepatan & Insting</span>
+                            </div>
+                            <div class="bg-persib-900/80 p-4 rounded-2xl border border-persib-600 col-span-2 sm:col-span-1">
+                                <span class="block text-xs text-gray-400">Status</span>
+                                <span class="font-bold text-white text-sm">Idola & Panutan</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Idol Card Graphic with Mbappe Photo -->
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="relative w-full max-w-sm bg-gradient-to-br from-persib-900 to-persib-700 border-2 border-accent-gold/40 rounded-3xl p-6 text-center shadow-2xl gold-glow">
+                            <div class="relative h-64 rounded-2xl overflow-hidden mb-4 border border-accent-gold/30 group">
+                                <img src="https://cdn1-production-images-kly.akamaized.net/CGFriVsbPCdjooYFF3iskjyovIA=/1280x720/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/9333467/original/004793400_1787778963-000_C6KX2G4-Mbappe.jpg" 
+                                     alt="Kylian Mbappe" 
+                                     class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-persib-900/80 via-transparent to-transparent"></div>
+                                <div class="absolute bottom-3 left-3 right-3">
+                                    <span class="text-xs text-accent-gold font-bold bg-persib-900/80 px-3 py-1 rounded-full">#KM9 Icon</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-300 italic">"Bermain dengan determinasi penuh, tidak pernah menyerah, dan selalu siap memberikan dampak maksimal bagi tim."</p>
+                            <div class="mt-4 pt-4 border-t border-persib-600 text-xs text-accent-gold font-bold uppercase tracking-widest">
+                                Teladan Nizam Zaidan Raditya
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dream Club Section (Persib Bandung) -->
+    <section id="dream" class="py-24 bg-persib-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-accent-light font-bold uppercase tracking-wider text-sm mb-2">Target & Impian Tertinggi</h2>
+                <h3 class="text-3xl sm:text-4xl font-black text-white">CITA-CITA KLUB: PERSIB BANDUNG</h3>
+                <div class="w-20 h-1.5 bg-accent-light mx-auto mt-4 rounded-full"></div>
+                <p class="text-gray-400 mt-4">Klub legendaris kebanggaan Bobotoh dengan sejarah kejayaan dan atmosfer stadion yang luar biasa.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                <!-- Left Vision -->
+                <div class="md:col-span-6 space-y-6 bg-persib-700/40 border border-persib-600/40 rounded-3xl p-8 shadow-xl">
+                    <div class="w-14 h-14 rounded-2xl bg-persib-500/30 text-accent-light flex items-center justify-center text-2xl font-bold">
+                        <i class="fa-solid fa-shield-dog"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white">Maung Bandung di Hati</h4>
+                    <p class="text-gray-300 leading-relaxed">
+                        Persib Bandung (Maung Bandung) bukan sekadar klub sepak bola biasa, melainkan simbol kebanggaan dan semangat juang tanpa batas masyarakat sunda dan pecinta sepak bola Indonesia.
+                    </p>
+                    <p class="text-gray-300 leading-relaxed">
+                        Sebagai <strong class="text-white">Nizam Zaidan Raditya</strong>, cita-cita terbesar saya setelah menyelesaikan pendidikan di SMK adalah bisa bergabung, berlatih, dan berjuang di lapangan hijau mengenakan jersey biru kebanggaan Persib Bandung.
+                    </p>
+                </div>
+
+                <!-- Right Persib Highlight Card -->
+                <div class="md:col-span-6 bg-gradient-to-br from-persib-600 via-persib-700 to-persib-900 border border-persib-500/50 rounded-3xl p-8 sm:p-10 shadow-2xl relative overflow-hidden">
+                    <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="flex items-center space-x-4 mb-6">
+                        <div class="w-16 h-16 rounded-2xl bg-white text-persib-900 flex items-center justify-center text-2xl font-black shadow-lg">
+                            PBI
+                        </div>
+                        <div>
+                            <h4 class="text-2xl font-bold text-white">Persib Bandung</h4>
+                            <span class="text-xs text-accent-gold font-semibold tracking-wider uppercase">Dream Club & Bobotoh Vibe</span>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-4 text-gray-200 text-sm">
+                        <li class="flex items-center space-x-3 bg-persib-900/60 p-3.5 rounded-2xl border border-persib-600">
+                            <i class="fa-solid fa-circle-check text-accent-light text-lg"></i>
+                            <span>Impian membela Maung Bandung di level profesional.</span>
+                        </li>
+                        <li class="flex items-center space-x-3 bg-persib-900/60 p-3.5 rounded-2xl border border-persib-600">
+                            <i class="fa-solid fa-circle-check text-accent-light text-lg"></i>
+                            <span>Terinspirasi semangat juang Bobotoh yang luar biasa.</span>
+                        </li>
+                        <li class="flex items-center space-x-3 bg-persib-900/60 p-3.5 rounded-2xl border border-persib-600">
+                            <i class="fa-solid fa-circle-check text-accent-light text-lg"></i>
+                            <span>Komitmen latihan konsisten di sela-sela kesibukan SMK.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Footer Section -->
+    <section id="contact" class="py-20 bg-persib-700/30 border-t border-persib-600/30 text-center">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <h2 class="text-3xl sm:text-4xl font-black text-white">TERHUBUNG DENGAN NIZAM ZAIDAN RADITYA</h2>
+            <p class="text-gray-300 max-w-xl mx-auto">
+                Tertarik berdiskusi seputar taktik sepak bola, turnamen antar pelajar SMK, atau posisi AMF? Mari terhubung!
+            </p>
+
+            <div class="flex justify-center space-x-4">
+                <a href="https://instagram.com" target="_blank" class="w-14 h-14 rounded-2xl bg-persib-700/60 border border-persib-600 flex items-center justify-center text-white hover:bg-persib-500 hover:border-persib-500 transition-all text-xl shadow-lg">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://whatsapp.com" target="_blank" class="w-14 h-14 rounded-2xl bg-persib-700/60 border border-persib-600 flex items-center justify-center text-white hover:bg-emerald-600 hover:border-emerald-600 transition-all text-xl shadow-lg">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <a href="mailto:nizam@example.com" class="w-14 h-14 rounded-2xl bg-persib-700/60 border border-persib-600 flex items-center justify-center text-white hover:bg-accent-light hover:border-accent-light hover:text-persib-900 transition-all text-xl shadow-lg">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+            </div>
+
+            <div class="pt-8 border-t border-persib-600/40 text-gray-400 text-sm">
+                &copy; 2026 Nizam Zaidan Raditya. All Rights Reserved. AMF Playmaker & Bobotoh Enthusiast.
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript for Mobile Menu Toggle -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
