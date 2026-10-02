@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmad Fakhri Ramadan | Futsal Goalkeeper Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                            dark: '#0b0f19',
+                            card: '#111827',
+                            accent: '#f59e0b'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b0f19;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #374151;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4b5563;
+        }
+        .glow-effect {
+            box-shadow: 0 0 25px rgba(59, 130, 246, 0.3);
+        }
+        .glow-accent {
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-gray-100 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-brand-dark/90 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-brand-accent flex items-center justify-center text-white font-black text-xl shadow-lg group-hover:scale-105 transition-transform">
+                    AF
+                </div>
+                <div>
+                    <span class="block font-extrabold tracking-wider text-white text-lg">AFR #1</span>
+                    <span class="block text-xs text-brand-accent font-semibold tracking-widest uppercase">Goalkeeper</span>
+                </div>
+            </a>
+            
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
+                <a href="#hero" class="hover:text-brand-500 transition-colors">Beranda</a>
+                <a href="#about" class="hover:text-brand-500 transition-colors">Tentang Saya</a>
+                <a href="#goalkeeper" class="hover:text-brand-500 transition-colors">Kiper & Skill</a>
+                <a href="#idol" class="hover:text-brand-500 transition-colors">Idola</a>
+                <a href="#dream" class="hover:text-brand-500 transition-colors">Impian BTS</a>
+                <a href="#contact" class="bg-brand-600 hover:bg-brand-700 text-white px-5 py-2.5 rounded-xl font-semibold shadow-md transition-all transform hover:-translate-y-0.5">Kontak</a>
+            </nav>
+
+            <button id="menu-btn" class="md:hidden text-gray-300 hover:text-white focus:outline-none p-2 rounded-lg bg-gray-800">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-card border-b border-gray-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#hero" class="block py-2 px-3 rounded-lg hover:bg-gray-800 font-medium">Beranda</a>
+            <a href="#about" class="block py-2 px-3 rounded-lg hover:bg-gray-800 font-medium">Tentang Saya</a>
+            <a href="#goalkeeper" class="block py-2 px-3 rounded-lg hover:bg-gray-800 font-medium">Kiper & Skill</a>
+            <a href="#idol" class="block py-2 px-3 rounded-lg hover:bg-gray-800 font-medium">Idola</a>
+            <a href="#dream" class="block py-2 px-3 rounded-lg hover:bg-gray-800 font-medium">Impian BTS</a>
+            <a href="#contact" class="block text-center py-2.5 px-3 bg-brand-600 text-white font-semibold rounded-lg mt-2">Kontak</a>
+        </div>
+    </header>
+
+    <!-- Hero Section (Using Ahmad Fakhri's Catbox Photo) -->
+    <section id="hero" class="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden bg-gradient-to-b from-brand-dark via-gray-900 to-brand-dark">
+        <div class="absolute top-1/4 left-10 w-72 h-72 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-10 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 bg-brand-card border border-gray-800 px-4 py-2 rounded-full text-brand-accent text-sm font-semibold shadow-inner">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>Anak SMK & Penjaga Gawang Profesional Masa Depan</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white uppercase leading-none">
+                        AHMAD <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-brand-accent">FAKHRI</span> RAMADAN
+                    </h1>
+
+                    <p class="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto lg:mx-0 font-normal">
+                        Benteng terakhir pertahanan klub futsal sekolah <span class="text-white font-semibold">"SEKATA"</span>. Siap menepis setiap tembakan keras dan membawa tim meraih kemenangan mutlak!
+                    </p>
+
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-2">
+                        <div class="bg-gray-800/80 border border-gray-700 px-4 py-3 rounded-2xl flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-xl bg-brand-600/20 text-brand-500 flex items-center justify-center font-bold">
+                                <i class="fa-solid fa-school"></i>
+                            </div>
+                            <div class="text-left">
+                                <span class="block text-xs text-gray-400">Klub Sekolah</span>
+                                <span class="font-bold text-white">SEKATA FC</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-800/80 border border-gray-700 px-4 py-3 rounded-2xl flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-brand-accent flex items-center justify-center font-bold">
+                                <i class="fa-solid fa-hands"></i>
+                            </div>
+                            <div class="text-left">
+                                <span class="block text-xs text-gray-400">Posisi Utama</span>
+                                <span class="font-bold text-white">Goalkeeper (#1)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#about" class="w-full sm:w-auto text-center px-8 py-4 bg-gradient-to-r from-brand-600 to-brand-700 hover:from-brand-500 hover:to-brand-600 text-white font-bold rounded-2xl shadow-lg glow-effect transition-all transform hover:-translate-y-1">
+                            Kenali Saya Lebih Dekat <i class="fa-solid fa-arrow-down ml-2"></i>
+                        </a>
+                        <a href="#dream" class="w-full sm:w-auto text-center px-8 py-4 bg-gray-800 hover:bg-gray-700 border border-gray-700 text-white font-bold rounded-2xl transition-all">
+                            Cita-Cita BTS <i class="fa-solid fa-star ml-2 text-brand-accent"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Hero Card / Visual with Ahmad Fakhri's Catbox Photo -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-brand-500 to-brand-accent rounded-3xl blur-lg opacity-30 animate-pulse"></div>
+                        
+                        <div class="relative bg-brand-card border border-gray-800 rounded-3xl p-6 sm:p-8 shadow-2xl overflow-hidden">
+                            <div class="absolute -right-6 -bottom-10 text-9xl font-black text-gray-800/40 select-none pointer-events-none">
+                                01
+                            </div>
+
+                            <div class="flex items-center justify-between mb-6">
+                                <span class="bg-blue-500/10 text-brand-500 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider border border-brand-500/20">
+                                    Player Card
+                                </span>
+                                <span class="text-brand-accent font-bold text-sm flex items-center space-x-1">
+                                    <i class="fa-solid fa-shield"></i> <span>SEKATA GK</span>
+                                </span>
+                            </div>
+
+                            <div class="relative h-72 rounded-2xl bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 flex flex-col items-center justify-center overflow-hidden group shadow-inner mb-6">
+                                <img src="https://files.catbox.moe/424r6f.jpg" alt="Ahmad Fakhri Ramadan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-transparent to-transparent flex items-end p-4">
+                                    <div>
+                                        <h3 class="text-lg font-bold text-white">Ahmad Fakhri Ramadan</h3>
+                                        <p class="text-xs text-brand-accent font-medium">SMK Student & Goalkeeper</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-3 gap-3 text-center">
+                                <div class="bg-gray-900/60 p-3 rounded-xl border border-gray-800">
+                                    <span class="block text-xs text-gray-400">Refleks</span>
+                                    <span class="text-lg font-black text-brand-500">95%</span>
+                                </div>
+                                <div class="bg-gray-900/60 p-3 rounded-xl border border-gray-800">
+                                    <span class="block text-xs text-gray-400">Mental</span>
+                                    <span class="text-lg font-black text-brand-accent">Aluminium</span>
+                                </div>
+                                <div class="bg-gray-900/60 p-3 rounded-xl border border-gray-800">
+                                    <span class="block text-xs text-gray-400">Distribusi</span>
+                                    <span class="text-lg font-black text-white">Akurat</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-gray-900/50 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-brand-500 font-bold uppercase tracking-wider text-sm mb-2">Profil Pribadi</h2>
+                <h3 class="text-3xl sm:text-4xl font-black text-white">TENTANG SAYA & SEKOLAH</h3>
+                <div class="w-20 h-1.5 bg-brand-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="bg-brand-card border border-gray-800 rounded-3xl p-8 shadow-xl space-y-6">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-600/20 text-brand-500 flex items-center justify-center text-2xl font-bold">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white">Pelajar SMK yang Berdedikasi</h4>
+                    <p class="text-gray-300 leading-relaxed">
+                        Halo! Nama saya <strong class="text-white">Ahmad Fakhri Ramadan</strong>. Sebagai anak Sekolah Menengah Kejuruan (SMK), saya belajar arti kedisiplinan, kerja keras, dan tanggung jawab—nilai-nilai yang juga saya bawa langsung ke atas lapangan futsal sebagai seorang penjaga gawang.
+                    </p>
+                    <div class="flex items-center space-x-4 pt-2 text-gray-400 text-sm">
+                        <div class="flex items-center space-x-2">
+                            <i class="fa-solid fa-check text-brand-500"></i>
+                            <span>Fokus & Konsisten</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fa-solid fa-check text-brand-500"></i>
+                            <span>Semangat Tinggi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-brand-card border border-gray-800 rounded-3xl p-8 shadow-xl space-y-6 relative overflow-hidden">
+                    <div class="absolute -right-10 -top-10 w-40 h-40 bg-brand-500/10 rounded-full blur-2xl pointer-events-none"></div>
+                    <div class="w-14 h-14 rounded-2xl bg-amber-500/20 text-brand-accent flex items-center justify-center text-2xl font-bold">
+                        <i class="fa-solid fa-shield-heart"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white">Klub Sekolah: "SEKATA"</h4>
+                    <p class="text-gray-300 leading-relaxed">
+                        Saat ini saya aktif membela klub futsal kebanggaan di lingkungan sekolah, yaitu <strong class="text-white">"SEKATA"</strong>. Di sinilah tempat saya menempa mental bertanding, membangun kerja sama tim yang solid, dan mengasah insting penyelamatan gawang dari gempuran lawan.
+                    </p>
+                    <div class="pt-2">
+                        <span class="inline-block bg-gray-800 border border-gray-700 px-4 py-2 rounded-xl text-brand-accent font-semibold text-sm">
+                            <i class="fa-solid fa-location-dot mr-2"></i> SEKATA FC - Sekolah
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Goalkeeper Role & Highlights -->
+    <section id="goalkeeper" class="py-24 bg-brand-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-brand-500 font-bold uppercase tracking-wider text-sm mb-2">Posisi Spesialis</h2>
+                <h3 class="text-3xl sm:text-4xl font-black text-white">JIWA SEORANG KIPER (GOALKEEPER)</h3>
+                <div class="w-20 h-1.5 bg-brand-500 mx-auto mt-4 rounded-full"></div>
+                <p class="text-gray-400 mt-4">Kiper bukan sekadar menjaga gawang, tapi pengatur ritme pertahanan dan komandan di garis belakang.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-brand-card border border-gray-800 rounded-3xl p-8 hover:border-brand-500/50 transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-600/20 text-brand-500 flex items-center justify-center text-2xl font-bold mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Refleks Cepat & Tanggap</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Futsal adalah olahraga dengan tempo sangat tinggi. Dibutuhkan kecepatan reaksi dalam hitungan persekon detik untuk menepis tendangan jarak dekat pemain lawan.
+                    </p>
+                </div>
+
+                <div class="bg-brand-card border border-gray-800 rounded-3xl p-8 hover:border-brand-500/50 transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-500/20 text-brand-accent flex items-center justify-center text-2xl font-bold mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-bullhorn"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Komunikasi & Koordinasi</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Dari belakang lapangan, saya melihat seluruh pergerakan lawan. Selalu aktif memberikan instruksi penempatan posisi kepada rekan satu tim di SEKATA.
+                    </p>
+                </div>
+
+                <div class="bg-brand-card border border-gray-800 rounded-3xl p-8 hover:border-brand-500/50 transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl font-bold mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-crosshairs"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Distribusi Bola Akurat</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Penyelamatan yang baik harus berujung pada serangan balik cepat. Lemparan dan tendangan akurat langsung menjadi awal serangan tim.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Idol Section (Muhammad Albagir) with tvOneNews Photo -->
+    <section id="idol" class="py-24 bg-gradient-to-b from-brand-dark via-gray-900 to-brand-dark border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-brand-card border border-gray-800 rounded-3xl p-8 sm:p-12 shadow-2xl relative overflow-hidden">
+                <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="inline-flex items-center space-x-2 bg-amber-500/10 border border-amber-500/20 px-4 py-1.5 rounded-full text-brand-accent text-xs font-bold uppercase tracking-wider">
+                            <i class="fa-solid fa-star"></i>
+                            <span>Inspirasi Terbesar Kiper</span>
+                        </div>
+
+                        <h2 class="text-3xl sm:text-5xl font-black text-white uppercase leading-tight">
+                            MUHAMMAD <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-yellow-300">ALBAGIR</span>
+                        </h2>
+
+                        <p class="text-gray-300 text-base sm:text-lg leading-relaxed">
+                            Bagi saya, <strong class="text-white">Muhammad Albagir</strong> adalah panutan mutlak di bawah mistar gawang futsal Indonesia. Ketenangan mentalnya, penempatan posisi yang luar biasa, serta mental juaranya saat menghadapi penyerang kelas atas menjadi motivasi terbesar saya setiap kali berlatih bersama klub SEKATA.
+                        </p>
+
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2">
+                            <div class="bg-gray-900/80 p-4 rounded-2xl border border-gray-800">
+                                <span class="block text-xs text-gray-400">Timnas Futsal</span>
+                                <span class="font-bold text-white text-sm">Indonesia 🇮🇩</span>
+                            </div>
+                            <div class="bg-gray-900/80 p-4 rounded-2xl border border-gray-800">
+                                <span class="block text-xs text-gray-400">Karakteristik</span>
+                                <span class="font-bold text-brand-accent text-sm">Tenang & Refleks</span>
+                            </div>
+                            <div class="bg-gray-900/80 p-4 rounded-2xl border border-gray-800 col-span-2 sm:col-span-1">
+                                <span class="block text-xs text-gray-400">Status</span>
+                                <span class="font-bold text-white text-sm">Idola & Mentor Mental</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Idol Card Graphic with tvOneNews Photo -->
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="relative w-full max-w-sm bg-gradient-to-br from-gray-900 to-gray-800 border-2 border-brand-accent/40 rounded-3xl p-6 text-center shadow-2xl glow-accent overflow-hidden">
+                            <div class="relative h-64 rounded-2xl overflow-hidden mb-4 border border-brand-accent/30 shadow-inner">
+                                <img src="https://thumb.tvonenews.com/images/2023/05/07/6457cf90dca17-albagir.jpg" alt="Muhammad Albagir" class="w-full h-full object-cover">
+                            </div>
+                            <h3 class="text-xl font-black text-white">Muhammad Albagir (#13)</h3>
+                            <p class="text-xs text-gray-400 mt-1">"Latihan keras, fokus penuh di bawah mistar, dan jangan pernah takut menghadapi tendangan keras lawan."</p>
+                            <div class="mt-4 pt-4 border-t border-gray-800 text-xs text-brand-accent font-bold uppercase tracking-widest">
+                                Teladan Ahmad Fakhri Ramadan
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dream Club Section (Bintang Timur Surabaya) -->
+    <section id="dream" class="py-24 bg-brand-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-brand-500 font-bold uppercase tracking-wider text-sm mb-2">Target & Masa Depan</h2>
+                <h3 class="text-3xl sm:text-4xl font-black text-white">CITA-CITA KLUB: BINTANG TIMUR SURABAYA</h3>
+                <div class="w-20 h-1.5 bg-brand-500 mx-auto mt-4 rounded-full"></div>
+                <p class="text-gray-400 mt-4">Impian tertinggi saya setelah lulus SMK adalah memperkuat klub profesional kebanggaan Jawa Timur.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                <div class="md:col-span-6 space-y-6 bg-brand-card border border-gray-800 rounded-3xl p-8 shadow-xl">
+                    <div class="w-14 h-14 rounded-2xl bg-blue-600/20 text-brand-500 flex items-center justify-center text-2xl font-bold">
+                        <i class="fa-solid fa-trophy"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white">Menuju Panggung Profesional</h4>
+                    <p class="text-gray-300 leading-relaxed">
+                        Bintang Timur Surabaya (BTS) adalah salah satu klub futsal profesional paling elite di Indonesia dengan prestasi luar biasa di kancah nasional maupun internasional. 
+                    </p>
+                    <p class="text-gray-300 leading-relaxed">
+                        Sebagai <strong class="text-white">Ahmad Fakhri Ramadan</strong>, saya bertekad untuk terus meningkatkan jam terbang bersama klub sekolah <strong class="text-white">SEKATA</strong>, menjaga kondisi fisik, dan suatu hari nanti bisa mengenakan jersey kebanggaan Bintang Timur Surabaya di bawah mistar gawang.
+                    </p>
+                </div>
+
+                <div class="md:col-span-6 bg-gradient-to-br from-blue-950 via-gray-900 to-brand-card border border-blue-500/30 rounded-3xl p-8 sm:p-10 shadow-2xl relative overflow-hidden">
+                    <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="flex items-center space-x-4 mb-6">
+                        <div class="w-16 h-16 rounded-2xl bg-brand-500 flex items-center justify-center text-white text-2xl font-black shadow-lg">
+                            BTS
+                        </div>
+                        <div>
+                            <h4 class="text-2xl font-bold text-white">Bintang Timur Surabaya</h4>
+                            <span class="text-xs text-brand-accent font-semibold tracking-wider uppercase">Dream Professional Club</span>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-4 text-gray-300 text-sm">
+                        <li class="flex items-center space-x-3 bg-gray-900/60 p-3.5 rounded-2xl border border-gray-800">
+                            <i class="fa-solid fa-circle-check text-brand-500 text-lg"></i>
+                            <span>Target utama karir profesional futsal setelah lulus SMK.</span>
+                        </li>
+                        <li class="flex items-center space-x-3 bg-gray-900/60 p-3.5 rounded-2xl border border-gray-800">
+                            <i class="fa-solid fa-circle-check text-brand-500 text-lg"></i>
+                            <span>Inspirasi dari standar permainan tingkat tinggi klub juara.</span>
+                        </li>
+                        <li class="flex items-center space-x-3 bg-gray-900/60 p-3.5 rounded-2xl border border-gray-800">
+                            <i class="fa-solid fa-circle-check text-brand-500 text-lg"></i>
+                            <span>Komitmen latihan tanpa kenal lelah bersama SEKATA FC.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Footer Section -->
+    <section id="contact" class="py-20 bg-gray-900 border-t border-gray-800 text-center">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <h2 class="text-3xl sm:text-4xl font-black text-white">TERHUBUNG DENGAN AHMAD FAKHRI RAMADAN</h2>
+            <p class="text-gray-400 max-w-xl mx-auto">
+                Tertarik berkolaborasi dalam pertandingan futsal, turnamen antar sekolah, atau diskusi seputar posisi penjaga gawang? Mari terhubung!
+            </p>
+
+            <div class="flex justify-center space-x-4">
+                <a href="https://instagram.com" target="_blank" class="w-14 h-14 rounded-2xl bg-brand-card border border-gray-800 flex items-center justify-center text-white hover:bg-brand-600 hover:border-brand-600 transition-all text-xl shadow-lg">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://whatsapp.com" target="_blank" class="w-14 h-14 rounded-2xl bg-brand-card border border-gray-800 flex items-center justify-center text-white hover:bg-emerald-600 hover:border-emerald-600 transition-all text-xl shadow-lg">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <a href="mailto:fakhri@example.com" class="w-14 h-14 rounded-2xl bg-brand-card border border-gray-800 flex items-center justify-center text-white hover:bg-brand-500 hover:border-brand-500 transition-all text-xl shadow-lg">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+            </div>
+
+            <div class="pt-8 border-t border-gray-800 text-gray-500 text-sm">
+                &copy; 2026 Ahmad Fakhri Ramadan. All Rights Reserved. Goalkeeper of SEKATA FC.
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript for Mobile Menu Toggle -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
