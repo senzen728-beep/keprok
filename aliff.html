@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bahaya Begadang - Dampak Kesehatan & Kalkulator Tidur</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        slate: {
+                            850: '#111827',
+                            900: '#0f172a',
+                            950: '#070a12',
+                        },
+                        indigo: {
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                        },
+                        violet: {
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                        },
+                        rose: {
+                            500: '#f43f5e',
+                            600: '#e11d48',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Styles & Glassmorphism */
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #070a12;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-panel-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-panel-hover:hover {
+            transform: translateY(-6px);
+            background: rgba(30, 41, 59, 0.85);
+            border-color: rgba(139, 92, 246, 0.4);
+            box-shadow: 0 20px 30px -10px rgba(99, 102, 241, 0.25);
+        }
+
+        .hero-overlay {
+            background: linear-gradient(180deg, rgba(7, 10, 18, 0.6) 0%, rgba(7, 10, 18, 0.95) 85%, #070a12 100%);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #070a12;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6366f1;
+        }
+    </style>
+</head>
+<body class="selection:bg-violet-500 selection:text-white">
+
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-slate-800/80 px-4 lg:px-8 py-3 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-500 via-violet-500 to-rose-500 flex items-center justify-center text-white shadow-lg shadow-violet-500/20 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-moon text-lg"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-indigo-400">SleepHazard</span>
+                    <span class="block text-[10px] text-indigo-400 font-semibold tracking-wider uppercase">Health & Sleep Edu</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#dampak" class="text-slate-300 hover:text-indigo-400 transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-heart-pulse text-xs text-rose-500"></i> Dampak Organ
+                </a>
+                <a href="#simulator" class="text-slate-300 hover:text-indigo-400 transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-clock-rotate-left text-xs text-amber-400"></i> Simulator
+                </a>
+                <a href="#kalkulator" class="text-slate-300 hover:text-indigo-400 transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-calculator text-xs text-indigo-400"></i> Hutang Tidur
+                </a>
+                <a href="#kuis" class="text-slate-300 hover:text-indigo-400 transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-clipboard-question text-xs text-violet-400"></i> Kuis Risiko
+                </a>
+                <a href="#solusi" class="text-slate-300 hover:text-indigo-400 transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-bed text-xs text-emerald-400"></i> Sleep Hygiene
+                </a>
+            </div>
+
+            <div class="hidden md:block">
+                <a href="#kalkulator" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 via-violet-500 to-rose-500 text-white text-sm font-semibold hover:opacity-90 transition-all shadow-md shadow-violet-500/25 flex items-center gap-2">
+                    Cek Hutang Tidur <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="menu-btn" class="md:hidden text-slate-300 hover:text-white p-2 focus:outline-none" aria-label="Toggle Navigation">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-4 pt-4 pb-6 mt-2 rounded-2xl glass-panel space-y-3 border border-slate-800">
+            <a href="#dampak" class="mobile-link block px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white">Dampak Organ</a>
+            <a href="#simulator" class="mobile-link block px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white">Simulator Begadang</a>
+            <a href="#kalkulator" class="mobile-link block px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white">Kalkulator Tidur</a>
+            <a href="#kuis" class="mobile-link block px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white">Kuis Risiko</a>
+            <a href="#solusi" class="mobile-link block px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white">Tips Sleep Hygiene</a>
+            <a href="#kalkulator" class="mobile-link block w-full text-center px-4 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-rose-500 text-white font-medium">Cek Hutang Tidur</a>
+        </div>
+    </nav>
+
+    <section class="relative min-h-screen flex items-center justify-center pt-28 pb-16 overflow-hidden">
+        <!-- Background Image with Dark Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1511295742362-92c96b124e52?auto=format&fit=crop&q=80&w=2000" 
+                 alt="Begadang Malam Hari" 
+                 class="w-full h-full object-cover object-center filter brightness-75 scale-105 animate-pulse-slow">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <!-- Alert Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-violet-500/40 text-violet-300 text-xs sm:text-sm font-medium mb-6">
+                <span class="flex h-2.5 w-2.5 rounded-full bg-rose-500 animate-ping"></span>
+                <span>Peringatan Kesehatan: Begadang menurunkan sistem imun hingga 70%</span>
+            </div>
+
+            <!-- Title -->
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+                Begadang Merusak Tubuh <br class="hidden sm:inline" />
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 via-violet-400 to-indigo-400">
+                    Lebih Cepat Dari Yang Anda Duga
+                </span>
+            </h1>
+
+            <p class="max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-slate-300 font-light mb-10 leading-relaxed">
+                Setiap jam tidur yang terbuang adalah racun metabolisme yang menumpuk di otak dan beban berat bagi jantung. Pahami risiko nyata dan pulihkan pola tidur Anda sekarang.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#dampak" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-indigo-500 via-violet-500 to-rose-500 text-white font-semibold shadow-lg shadow-indigo-500/30 hover:scale-105 transition-all flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-eye"></i> Lihat Dampak Visual
+                </a>
+                <a href="#kalkulator" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-panel hover:bg-slate-800/80 text-slate-200 font-semibold border border-slate-700 hover:border-slate-500 transition-all flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-calculator"></i> Hitung Hutang Tidur
+                </a>
+            </div>
+
+            <!-- Hero Quick Stats Grid -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+                <div class="glass-panel p-5 rounded-2xl text-center border-t-2 border-rose-500">
+                    <div class="text-3xl font-extrabold text-rose-500 mb-1">48%</div>
+                    <div class="text-xs text-slate-400">Peningkatan Risiko Penyakit Jantung</div>
+                </div>
+                <div class="glass-card glass-panel p-5 rounded-2xl text-center border-t-2 border-amber-400">
+                    <div class="text-3xl font-extrabold text-amber-400 mb-1">3x Lipat</div>
+                    <div class="text-xs text-slate-400">Rentan Terkena Flu & Infeksi Virus</div>
+                </div>
+                <div class="glass-panel p-5 rounded-2xl text-center border-t-2 border-violet-400">
+                    <div class="text-3xl font-extrabold text-violet-400 mb-1">-40%</div>
+                    <div class="text-xs text-slate-400">Penurunan Memori & Fungsi Otak</div>
+                </div>
+                <div class="glass-panel p-5 rounded-2xl text-center border-t-2 border-indigo-400">
+                    <div class="text-3xl font-extrabold text-indigo-400 mb-1">2x Lipat</div>
+                    <div class="text-xs text-slate-400">Risiko Obesitas & Diabetes Tipe 2</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="dampak" class="py-24 relative bg-slate-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs uppercase tracking-widest text-indigo-400 font-bold mb-2 block">Dampak Kesehatan Nyata</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white">Apa Yang Terjadi Pada Organ Tubuh Anda?</h2>
+                <p class="text-slate-400 mt-4 text-base">Visualisasi efek destruktif kurang tidur terhadap organ-organ vital manusia.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Card 1: Otak & Memory -->
+                <div class="glass-panel glass-panel-hover rounded-2xl overflow-hidden flex flex-col group">
+                    <div class="relative h-52 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1541199249251-f713e6145474?auto=format&fit=crop&q=80&w=800" 
+                             alt="Pusing dan Lelah Otak" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
+                        <span class="absolute top-4 left-4 bg-violet-600/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-md">
+                            <i class="fa-solid fa-brain mr-1"></i> Sistem Saraf
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-violet-400 transition-colors">Otak & Daya Ingat</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                                Saat begadang, sistem *Glimfatik* tidak bisa membersihkan racun protein *Beta-Amyloid* di otak. Akibatnya terjadi *brain fog*, pelupa, dan penurunan konsentrasi drastis.
+                            </p>
+                        </div>
+                        <div class="border-t border-slate-800 pt-4 mt-2">
+                            <div class="flex items-center gap-2 text-xs text-rose-400 font-medium">
+                                <i class="fa-solid fa-triangle-exclamation"></i> Penurunan refleks kognitif hingga 33%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Jantung -->
+                <div class="glass-panel glass-panel-hover rounded-2xl overflow-hidden flex flex-col group">
+                    <div class="relative h-52 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&q=80&w=800" 
+                             alt="Nyeri Dada dan Jantung" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
+                        <span class="absolute top-4 left-4 bg-rose-600/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-md">
+                            <i class="fa-solid fa-heart-pulse mr-1"></i> Kardiovaskular
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-rose-400 transition-colors">Jantung & Pembuluh Darah</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                                Kurang tidur menjaga tekanan darah tetap tinggi sepanjang malam. Ini memicu peradangan dinding pembuluh darah, hipertensi, dan risiko serangan jantung mendadak.
+                            </p>
+                        </div>
+                        <div class="border-t border-slate-800 pt-4 mt-2">
+                            <div class="flex items-center gap-2 text-xs text-rose-400 font-medium">
+                                <i class="fa-solid fa-triangle-exclamation"></i> Risiko hipertensi meningkat 48%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Imunitas -->
+                <div class="glass-panel glass-panel-hover rounded-2xl overflow-hidden flex flex-col group">
+                    <div class="relative h-52 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&q=80&w=800" 
+                             alt="Orang Sakit dan Imun Lemah" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
+                        <span class="absolute top-4 left-4 bg-indigo-600/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-md">
+                            <i class="fa-solid fa-shield-virus mr-1"></i> Sistem Imun
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">Kekebalan Tubuh Anjlok</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                                Produksi zat pelindung infeksi (*Sitokin*) diproduksi saat tidur lelap. Tanpa tidur yang cukup, antibodi menurun drastis sehingga Anda sangat mudah sakit dan terinfeksi.
+                            </p>
+                        </div>
+                        <div class="border-t border-slate-800 pt-4 mt-2">
+                            <div class="flex items-center gap-2 text-xs text-rose-400 font-medium">
+                                <i class="fa-solid fa-triangle-exclamation"></i> Rentan flu & pemulihan lambat
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Metabolisme -->
+                <div class="glass-panel glass-panel-hover rounded-2xl overflow-hidden flex flex-col group">
+                    <div class="relative h-52 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1561758033-d89a9ad46330?auto=format&fit=crop&q=80&w=800" 
+                             alt="Makan Junkfood Malam Hari" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
+                        <span class="absolute top-4 left-4 bg-amber-600/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-md">
+                            <i class="fa-solid fa-weight-scale mr-1"></i> Metabolisme
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">Berat Badan & Diabetes</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                                Begadang mengacaukan hormon *Ghrelin* (lapar) dan *Leptin* (kenyang). Tubuh secara otomatis mengidam makanan manis dan tinggi karbohidrat di tengah malam.
+                            </p>
+                        </div>
+                        <div class="border-t border-slate-800 pt-4 mt-2">
+                            <div class="flex items-center gap-2 text-xs text-rose-400 font-medium">
+                                <i class="fa-solid fa-triangle-exclamation"></i> Lonjakan gula darah & resistensi insulin
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5: Kesehatan Mental -->
+                <div class="glass-panel glass-panel-hover rounded-2xl overflow-hidden flex flex-col group">
+                    <div class="relative h-52 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&q=80&w=800" 
+                             alt="Stres dan Depresi" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
+                        <span class="absolute top-4 left-4 bg-purple-600/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-md">
+                            <i class="fa-solid fa-face-frown-open mr-1"></i> Mental Health
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">Kesehatan Mental & Stres</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                                Pusat emosi otak (*Amygdala*) menjadi 60% lebih reaktif saat kurang tidur. Mengakibatkan emosi labil, gampang cemas (*anxiety*), hingga kecenderungan depresi.
+                            </p>
+                        </div>
+                        <div class="border-t border-slate-800 pt-4 mt-2">
+                            <div class="flex items-center gap-2 text-xs text-rose-400 font-medium">
+                                <i class="fa-solid fa-triangle-exclamation"></i> Peningkatan hormon stres Kortisol
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6: Kulit & Penuaan -->
+                <div class="glass-panel glass-panel-hover rounded-2xl overflow-hidden flex flex-col group">
+                    <div class="relative h-52 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1512290900678-b1a92e10a293?auto=format&fit=crop&q=80&w=800" 
+                             alt="Mata Panda dan Penuaan Kulit" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
+                        <span class="absolute top-4 left-4 bg-pink-600/90 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-md">
+                            <i class="fa-solid fa-sparkles mr-1"></i> Penampilan Kulit
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-pink-400 transition-colors">Mata Panda & Penuaan Dini</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                                Hormon Kortisol tinggi memecah kolagen kulit. Ini memicu kantung mata hitam, kulit kusam, kerutan dini, dan memperlambat regenerasi sel kulit mati.
+                            </p>
+                        </div>
+                        <div class="border-t border-slate-800 pt-4 mt-2">
+                            <div class="flex items-center gap-2 text-xs text-rose-400 font-medium">
+                                <i class="fa-solid fa-triangle-exclamation"></i> Kerusakan struktur kolagen alami
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="simulator" class="py-24 relative bg-slate-900/80">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-panel p-8 sm:p-12 rounded-3xl border border-violet-500/30 shadow-2xl relative overflow-hidden">
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <span class="inline-block p-3 rounded-2xl bg-amber-500/20 text-amber-400 mb-3">
+                        <i class="fa-solid fa-clock-rotate-left text-2xl"></i>
+                    </span>
+                    <h2 class="text-3xl font-extrabold text-white">Simulator Efek Akumulasi Begadang</h2>
+                    <p class="text-slate-400 text-sm mt-2">Geser slider di bawah ini untuk melihat simulasi dampak tubuh berdasarkan durasi begadang secara berturut-turut.</p>
+                </div>
+
+                <!-- Interactive Time Slider -->
+                <div class="max-w-2xl mx-auto mb-10">
+                    <div class="flex justify-between items-center mb-3 font-semibold text-sm text-slate-300">
+                        <span>Durasi Begadang Rutin:</span>
+                        <span id="sim-days-label" class="text-amber-400 text-lg font-bold">1 Malam</span>
+                    </div>
+                    <input type="range" id="sim-slider" min="1" max="30" value="1" step="1" 
+                           class="w-full h-3 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-amber-400">
+                    <div class="flex justify-between text-xs text-slate-500 mt-2 font-medium">
+                        <span>1 Hari</span>
+                        <span>3 Hari</span>
+                        <span>1 Minggu</span>
+                        <span>2 Minggu</span>
+                        <span>1 Bulan</span>
+                    </div>
+                </div>
+
+                <!-- Simulation Dynamic Result Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-slate-950/80 p-6 sm:p-8 rounded-2xl border border-slate-800">
+                    <div class="relative h-64 sm:h-72 rounded-xl overflow-hidden shadow-lg">
+                        <img id="sim-img" src="https://images.unsplash.com/photo-1541199249251-f713e6145474?auto=format&fit=crop&q=80&w=800" 
+                             alt="Simulasi Kondisi Tubuh" class="w-full h-full object-cover transition-all duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+                        <div id="sim-status-badge" class="absolute bottom-4 left-4 bg-amber-500/90 text-slate-950 font-bold px-3 py-1 rounded-full text-xs">
+                            Gejala Awal (Ringan)
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h3 id="sim-title" class="text-2xl font-bold text-white">Efek 1 Malam Tanpa Tidur Cukup</h3>
+                        <p id="sim-desc" class="text-slate-300 text-sm leading-relaxed">
+                            Fokus mulai menurun, mata terasa kering, dan emosi sedikit lebih sensitif. Kadar gula darah sedikit naik karena metabolisme mulai terganggu.
+                        </p>
+                        
+                        <div class="pt-3 border-t border-slate-800">
+                            <span class="text-xs uppercase font-bold text-slate-400 tracking-wider">Perubahan Internal Utama:</span>
+                            <ul id="sim-bullets" class="mt-2 space-y-2 text-xs text-slate-300">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-circle-dot text-amber-400"></i> Waktu reaksi melambat 20%</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-circle-dot text-amber-400"></i> Peningkatan hormone Ghrelin (mudah lapar)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kalkulator" class="py-24 relative bg-slate-950">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-panel p-8 sm:p-12 rounded-3xl border border-indigo-500/30 relative">
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <span class="inline-block p-3 rounded-2xl bg-indigo-500/20 text-indigo-400 mb-3">
+                        <i class="fa-solid fa-calculator text-2xl"></i>
+                    </span>
+                    <h2 class="text-3xl font-extrabold text-white">Kalkulator Hutang Tidur (Sleep Debt)</h2>
+                    <p class="text-slate-400 text-sm mt-2">Ketahui berapa jam waktu tidur yang terhutang dan analisis tingkat risikonya.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <!-- Form Controls -->
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-300 mb-2 flex justify-between">
+                                <span>Usia Anda:</span>
+                                <span id="age-val" class="text-indigo-400 font-bold">22 Tahun</span>
+                            </label>
+                            <input type="range" id="age-input" min="15" max="70" value="22" class="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-indigo-500">
+                            <div class="flex justify-between text-[10px] text-slate-500 mt-1">
+                                <span>15 thn</span>
+                                <span>Dewasa (7-9 Jam)</span>
+                                <span>70 thn</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-slate-300 mb-2 flex justify-between">
+                                <span>Rata-rata Tidur Malam Per Hari:</span>
+                                <span id="sleep-val" class="text-violet-400 font-bold">5.5 Jam</span>
+                            </label>
+                            <input type="range" id="sleep-input" min="3" max="10" step="0.5" value="5.5" class="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-violet-500">
+                            <div class="flex justify-between text-[10px] text-slate-500 mt-1">
+                                <span>3 Jam</span>
+                                <span>6 Jam</span>
+                                <span>8 Jam (Ideal)</span>
+                                <span>10 Jam</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-slate-300 mb-2">Berapa hari Anda begadang/kurang tidur dalam seminggu?</label>
+                            <select id="days-input" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl p-3 focus:ring-2 focus:ring-indigo-500 outline-none transition-all text-sm">
+                                <option value="1">1 Hari dalam seminggu</option>
+                                <option value="3">3 Hari dalam seminggu</option>
+                                <option value="5" selected>5 Hari (Hari Kerja/Kuliah)</option>
+                                <option value="7">Setiap Hari (7 Hari Penuh)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Result Panel -->
+                    <div class="glass-panel bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 text-center flex flex-col justify-between h-full">
+                        <div>
+                            <div class="text-xs uppercase font-bold tracking-wider text-slate-400 mb-2">Total Hutang Tidur MINGGUAN</div>
+                            <div id="debt-hours" class="text-5xl font-extrabold text-rose-500 my-2">12.5 Jam</div>
+                            <div id="debt-status" class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-rose-500/20 text-rose-400 mb-4">
+                                Defisit Kronis
+                            </div>
+                            <p id="debt-analysis" class="text-xs text-slate-300 leading-relaxed text-left bg-slate-950 p-4 rounded-xl border border-slate-800">
+                                Analisis risiko akan muncul secara otomatis.
+                            </p>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-slate-800 text-left">
+                            <span class="text-xs font-semibold text-slate-400">Efek Samping Yang Mungkin Timbul:</span>
+                            <div id="debt-effects" class="flex flex-wrap gap-1.5 mt-2">
+                                <!-- Dynamic Badges -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kuis" class="py-24 relative bg-slate-900/50">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-10">
+                <span class="text-xs uppercase tracking-widest text-violet-400 font-bold">Self Assessment</span>
+                <h2 class="text-3xl font-bold text-white mt-1">Kuis Risiko Gaya Hidup Begadang</h2>
+                <p class="text-slate-400 text-sm mt-2">Jawab 4 pertanyaan singkat berikut untuk mengetahui skor risiko kesehatan Anda.</p>
+            </div>
+
+            <div class="glass-panel p-6 sm:p-10 rounded-3xl relative border border-slate-800">
+                <div id="quiz-container">
+                    <!-- Quiz dynamically rendered by JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solusi" class="py-24 relative bg-slate-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs uppercase tracking-widest text-emerald-400 font-bold">Panduan Pemulihan</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">Langkah Nyata Memperbaiki Pola Tidur (Sleep Hygiene)</h2>
+                <p class="text-slate-400 mt-2">Metode medis teruji untuk mengembalikan kualitas tidur dan ritme sirkadian tubuh Anda.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Tip 1 -->
+                <div class="glass-panel rounded-2xl overflow-hidden border-t-4 border-indigo-500 group">
+                    <div class="h-44 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&q=80&w=800" 
+                             alt="Matikan Layar Laptop dan Smartphone" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-white mb-2">1. Detoks Cahaya Biru (Blue Light)</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                            Sinar dari HP dan laptop menipu otak bahwa ini masih siang hari dan menekan hormon tidur (*Melatonin*).
+                        </p>
+                        <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
+                            <span class="text-xs text-indigo-400 font-semibold block mb-1">Panduan Aksi:</span>
+                            <p class="text-xs text-slate-400">Matikan semua gadget minimal 60 menit sebelum tidur atau baca buku fisik.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tip 2 -->
+                <div class="glass-panel rounded-2xl overflow-hidden border-t-4 border-violet-500 group">
+                    <div class="h-44 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=800" 
+                             alt="Cangkir Kopi Malam Hari" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-white mb-2">2. Cut-off Kafein & Makanan Berat</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                            Efek kafein bertahan hingga 6-8 jam di dalam darah, memblokir senyawa rasa kantuk di otak secara paksa.
+                        </p>
+                        <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
+                            <span class="text-xs text-violet-400 font-semibold block mb-1">Panduan Aksi:</span>
+                            <p class="text-xs text-slate-400">Jangan minum kopi/teh setelah jam 14.00 dan hindari makan berat 3 jam sebelum tidur.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tip 3 -->
+                <div class="glass-panel rounded-2xl overflow-hidden border-t-4 border-emerald-500 group">
+                    <div class="h-44 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&q=80&w=800" 
+                             alt="Kamar Tidur Nyaman Gelap" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-white mb-2">3. Suasana Kamar Gelap & Sejuk</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                            Suhu tubuh perlu turun sekitar 1°C untuk memicu fase tidur lelap (*Deep Sleep*). Suasana kamar menentukan kualitasnya.
+                        </p>
+                        <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
+                            <span class="text-xs text-emerald-400 font-semibold block mb-1">Panduan Aksi:</span>
+                            <p class="text-xs text-slate-400">Gunakan lampu tidur redup/gelap total dan atur suhu ruangan antara 20°C - 23°C.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-slate-800 bg-slate-950 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-500 to-rose-500 flex items-center justify-center text-white font-bold">
+                        <i class="fa-solid fa-moon"></i>
+                    </div>
+                    <div>
+                        <span class="text-lg font-bold text-white">SleepHazard Edu</span>
+                        <p class="text-xs text-slate-500">Edukasi Kesehatan Pola Tidur & Kesadaran Tubuh</p>
+                    </div>
+                </div>
+
+                <div class="text-center md:text-right">
+                    <p class="text-xs text-slate-500">
+                        &copy; 2026 SleepHazard Educational Project. All Rights Reserved.
+                    </p>
+                    <p class="text-[11px] text-slate-600 mt-1">
+                        *Catatan: Informasi di dalam website ini bertujuan edukatif dan tidak menggantikan konsultasi medis resmi dokter/spesialis tidur.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // -------------------------------------------------------------
+        // SIMULATOR BEGADANG LOGIC
+        // -------------------------------------------------------------
+        const simSlider = document.getElementById('sim-slider');
+        const simDaysLabel = document.getElementById('sim-days-label');
+        const simImg = document.getElementById('sim-img');
+        const simTitle = document.getElementById('sim-title');
+        const simDesc = document.getElementById('sim-desc');
+        const simBadge = document.getElementById('sim-status-badge');
+        const simBullets = document.getElementById('sim-bullets');
+
+        const simData = [
+            {
+                maxDays: 1,
+                label: "1 Malam",
+                title: "Efek 1 Malam Begadang",
+                badge: "Gejala Ringan",
+                badgeColor: "bg-amber-500/90 text-slate-950",
+                img: "https://images.unsplash.com/photo-1541199249251-f713e6145474?auto=format&fit=crop&q=80&w=800",
+                desc: "Fokus mulai menurun, mata kering, dan emosi sedikit labil. Metabolisme gula darah terganggu sementara.",
+                bullets: [
+                    "Waktu reaktif melambat 20%",
+                    "Mengidam makanan cepat saji (Peningkatan Ghrelin)",
+                    "Mata merah dan lelah"
+                ]
+            },
+            {
+                maxDays: 3,
+                label: "3 Malam Berturut-turut",
+                title: "Efek 3 Hari Kurang Tidur",
+                badge: "Gejala Sedang",
+                badgeColor: "bg-orange-500/90 text-white",
+                img: "https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&q=80&w=800",
+                desc: "Sistem imun mulai melemah. Mengalami 'microsleep' (tertidur beberapa detik secara tak sadar saat beraktivitas).",
+                bullets: [
+                    "Imunitas tubuh menurun hingga 50%",
+                    "Sering lupa hal kecil (Short-term memory loss)",
+                    "Kantung mata mulai menebal (Mata Panda)"
+                ]
+            },
+            {
+                maxDays: 7,
+                label: "1 Minggu (7 Hari)",
+                title: "Efek 1 Minggu Defisit Tidur",
+                badge: "Waspada / Berat",
+                badgeColor: "bg-rose-600/90 text-white",
+                img: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&q=80&w=800",
+                desc: "Tekanan darah melonjak tinggi secara konsisten. Otak kesulitan memproses informasi kompleks dan hormon stres kortisol sangat tinggi.",
+                bullets: [
+                    "Tekanan darah sistolik meningkat secara kronis",
+                    "Kulit kusam dan kusam akibat pemecahan kolagen",
+                    "Mood swing ekstrem dan ansietas tinggi"
+                ]
+            },
+            {
+                maxDays: 30,
+                label: "1 Bulan / Kronis",
+                title: "Efek 1 Bulan Begadang Kronis",
+                badge: "BAHAYA KRONIS",
+                badgeColor: "bg-red-700 text-white animate-bounce",
+                img: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&q=80&w=800",
+                desc: "Risiko penyakit jantung, stroke, dan diabetes tipe 2 naik drastis. Penumpukan plak beracun di otak memicu degenerasi sel saraf permanen.",
+                bullets: [
+                    "Peningkatan risiko stroke & aritmia jantung",
+                    "Resistensi insulin (Pemicu Diabetes Tipe 2)",
+                    "Sistem imunitas gagal melawan infeksi virus biasa"
+                ]
+            }
+        ];
+
+        simSlider.addEventListener('input', (e) => {
+            const val = parseInt(e.target.value);
+            let currentStage = simData[0];
+
+            if (val > 1 && val <= 3) currentStage = simData[1];
+            else if (val > 3 && val <= 7) currentStage = simData[2];
+            else if (val > 7) currentStage = simData[3];
+
+            simDaysLabel.innerText = `${val} Hari`;
+            simTitle.innerText = currentStage.title;
+            simDesc.innerText = currentStage.desc;
+            simImg.src = currentStage.img;
+            simBadge.innerText = currentStage.badge;
+            simBadge.className = `absolute bottom-4 left-4 font-bold px-3 py-1 rounded-full text-xs ${currentStage.badgeColor}`;
+
+            simBullets.innerHTML = currentStage.bullets.map(b => 
+                `<li class="flex items-center gap-2"><i class="fa-solid fa-circle-dot text-amber-400"></i> ${b}</li>`
+            ).join('');
+        });
+
+
+        // -------------------------------------------------------------
+        // SLEEP DEBT CALCULATOR LOGIC
+        // -------------------------------------------------------------
+        const ageInput = document.getElementById('age-input');
+        const sleepInput = document.getElementById('sleep-input');
+        const daysInput = document.getElementById('days-input');
+
+        const ageVal = document.getElementById('age-val');
+        const sleepVal = document.getElementById('sleep-val');
+        const debtHours = document.getElementById('debt-hours');
+        const debtStatus = document.getElementById('debt-status');
+        const debtAnalysis = document.getElementById('debt-analysis');
+        const debtEffects = document.getElementById('debt-effects');
+
+        function calculateSleepDebt() {
+            const age = parseInt(ageInput.value);
+            const sleep = parseFloat(sleepInput.value);
+            const days = parseInt(daysInput.value);
+
+            let idealSleep = 8.0;
+            if (age < 18) idealSleep = 9.0;
+            else if (age >= 65) idealSleep = 7.5;
+
+            ageVal.innerText = `${age} Tahun`;
+            sleepVal.innerText = `${sleep} Jam`;
+
+            const dailyDeficit = idealSleep - sleep;
+            let totalWeeklyDebt = 0;
+
+            if (dailyDeficit > 0) {
+                totalWeeklyDebt = dailyDeficit * days;
+            }
+
+            debtHours.innerText = `${totalWeeklyDebt.toFixed(1)} Jam`;
+            debtEffects.innerHTML = '';
+
+            if (totalWeeklyDebt <= 0) {
+                debtHours.className = "text-5xl font-extrabold text-emerald-400 my-2";
+                debtStatus.className = "inline-block px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-400 mb-4";
+                debtStatus.innerText = "Tidur Sangat Cukup!";
+                debtAnalysis.innerText = `Luar biasa! Jam tidur Anda (${sleep} jam) telah memenuhi kebutuhan ideal tubuh (${idealSleep} jam). Pertahankan pola hidup ini untuk konsentrasi & daya tahan tubuh maksimal.`;
+                
+                addBadge("Fokus Tajam", "emerald");
+                addBadge("Imunitas Maksimal", "emerald");
+            } 
+            else if (totalWeeklyDebt <= 6) {
+                debtHours.className = "text-5xl font-extrabold text-amber-400 my-2";
+                debtStatus.className = "inline-block px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/20 text-amber-400 mb-4";
+                debtStatus.innerText = "Hutang Tidur Ringan";
+                debtAnalysis.innerText = `Kekurangan ${totalWeeklyDebt.toFixed(1)} jam tidur seminggu. Efek jangka pendek terasa dalam bentuk rasa kantuk di siang hari dan sedikit penurunan daya ingat.`;
+                
+                addBadge("Kantuk Di Siang Hari", "amber");
+                addBadge("Mata Lelah", "amber");
+            } 
+            else if (totalWeeklyDebt <= 14) {
+                debtHours.className = "text-5xl font-extrabold text-orange-500 my-2";
+                debtStatus.className = "inline-block px-3 py-1 rounded-full text-xs font-semibold bg-orange-500/20 text-orange-400 mb-4";
+                debtStatus.innerText = "Defisit Tidur Sedang";
+                debtAnalysis.innerText = `Defisit ${totalWeeklyDebt.toFixed(1)} jam tidur mulai mempengaruhi kestabilan emosi dan kinerja jantung Anda. Hormon stres Kortisol cenderung melonjak tinggi.`;
+                
+                addBadge("Brain Fog", "orange");
+                addBadge("Emosi Labil", "orange");
+                addBadge("Ngidam Makanan Manis", "orange");
+            } 
+            else {
+                debtHours.className = "text-5xl font-extrabold text-rose-500 my-2";
+                debtStatus.className = "inline-block px-3 py-1 rounded-full text-xs font-semibold bg-rose-500/20 text-rose-400 mb-4";
+                debtStatus.innerText = "Defisit Tidur Kronis";
+                debtAnalysis.innerText = `PERINGATAN: Defisit ${totalWeeklyDebt.toFixed(1)} jam tidur dalam seminggu menempatkan tubuh Anda pada tingkat bahaya tinggi! Imunitas merosot dan risiko penyakit kardiovaskular naik dramatis.`;
+                
+                addBadge("Risiko Penyakit Jantung", "rose");
+                addBadge("Tekanan Darah Tinggi", "rose");
+                addBadge("Risiko Depresi & Anxiety", "rose");
+                addBadge("Penuaan Dini Sel", "rose");
+            }
+        }
+
+        function addBadge(text, color) {
+            const span = document.createElement('span');
+            let bgClass = "bg-slate-800 text-slate-300";
+            if (color === "emerald") bgClass = "bg-emerald-500/10 text-emerald-400 border border-emerald-500/30";
+            if (color === "amber") bgClass = "bg-amber-500/10 text-amber-400 border border-amber-500/30";
+            if (color === "orange") bgClass = "bg-orange-500/10 text-orange-400 border border-orange-500/30";
+            if (color === "rose") bgClass = "bg-rose-500/10 text-rose-400 border border-rose-500/30";
+
+            span.className = `px-2.5 py-1 rounded-lg text-[11px] font-medium ${bgClass}`;
+            span.innerText = text;
+            debtEffects.appendChild(span);
+        }
+
+        ageInput.addEventListener('input', calculateSleepDebt);
+        sleepInput.addEventListener('input', calculateSleepDebt);
+        daysInput.addEventListener('change', calculateSleepDebt);
+
+        calculateSleepDebt();
+
+
+        // -------------------------------------------------------------
+        // QUIZ LOGIC
+        // -------------------------------------------------------------
+        const quizQuestions = [
+            {
+                question: "Berapa jam rata-rata waktu tidur Anda di malam hari?",
+                options: [
+                    { text: "7 - 8 Jam atau lebih", score: 0 },
+                    { text: "5 - 6 Jam", score: 1 },
+                    { text: "Kurang dari 5 Jam", score: 2 }
+                ]
+            },
+            {
+                question: "Apakah Anda sering terbangun di pagi hari dengan perasaan lelah dan pusing?",
+                options: [
+                    { text: "Jarang / Hampir Tidak Pernah", score: 0 },
+                    { text: "Kadang-kadang (1-2x seminggu)", score: 1 },
+                    { text: "Hampir Setiap Hari", score: 2 }
+                ]
+            },
+            {
+                question: "Berapa banyak kafein/kopi/minuman berenergi yang Anda konsumsi harian?",
+                options: [
+                    { text: "Tidak minum / Maksimal 1 cangkir pagi hari", score: 0 },
+                    { text: "1 - 2 Cangkir hingga sore hari", score: 1 },
+                    { text: "Lebih dari 3 cangkir hingga malam hari", score: 2 }
+                ]
+            },
+            {
+                question: "Apakah Anda sering bermain smartphone di atas kasur dalam kegelapan sebelum tidur?",
+                options: [
+                    { text: "Tidak, saya langsung tidur", score: 0 },
+                    { text: "Ya, sekitar 15-30 menit", score: 1 },
+                    { text: "Ya, lebih dari 1 jam hingga larut malam", score: 2 }
+                ]
+            }
+        ];
+
+        let currentQuestion = 0;
+        let quizScore = 0;
+        const quizContainer = document.getElementById('quiz-container');
+
+        function renderQuiz() {
+            if (currentQuestion >= quizQuestions.length) {
+                renderQuizResult();
+                return;
+            }
+
+            const q = quizQuestions[currentQuestion];
+            let optionsHTML = '';
+
+            q.options.forEach((opt) => {
+                optionsHTML += `
+                    <button onclick="answerQuiz(${opt.score})" class="w-full text-left p-4 rounded-xl glass-panel hover:bg-slate-800 border border-slate-700 hover:border-violet-500 transition-all flex items-center justify-between group">
+                        <span class="text-sm text-slate-200 group-hover:text-white font-medium">${opt.text}</span>
+                        <i class="fa-solid fa-chevron-right text-xs text-slate-500 group-hover:text-violet-400"></i>
+                    </button>
+                `;
+            });
+
+            quizContainer.innerHTML = `
+                <div class="mb-4 flex justify-between items-center text-xs text-slate-400">
+                    <span>Pertanyaan ${currentQuestion + 1} dari ${quizQuestions.length}</span>
+                    <span class="text-violet-400 font-bold">${Math.round((currentQuestion / quizQuestions.length) * 100)}% Selesai</span>
+                </div>
+                <div class="w-full bg-slate-800 h-1.5 rounded-full mb-6 overflow-hidden">
+                    <div class="bg-gradient-to-r from-indigo-500 to-rose-500 h-full transition-all duration-300" style="width: ${(currentQuestion / quizQuestions.length) * 100}%"></div>
+                </div>
+                <h3 class="text-lg font-bold text-white mb-6">${q.question}</h3>
+                <div class="space-y-3">
+                    ${optionsHTML}
+                </div>
+            `;
+        }
+
+        window.answerQuiz = function(score) {
+            quizScore += score;
+            currentQuestion++;
+            renderQuiz();
+        };
+
+        function renderQuizResult() {
+            let title = "";
+            let desc = "";
+            let badgeClass = "";
+
+            if (quizScore <= 2) {
+                title = "Risiko Rendah: Pola Tidur Cukup Baik";
+                desc = "Selamat! Gaya hidup dan pola tidur Anda berada dalam batas aman. Pertahankan kualitas tidur ini untuk menjaga performa fisik dan mental.";
+                badgeClass = "bg-emerald-500/20 text-emerald-400 border-emerald-500/30";
+            } else if (quizScore <= 5) {
+                title = "Risiko Sedang: Perlu Pembenahan Segera";
+                desc = "Kebiasaan tidur Anda mulai menunjukkan tanda kekurangseimbangan. Mulailah membatasi penggunaan HP di malam hari dan kurangi asupan kafein sore.";
+                badgeClass = "bg-amber-500/20 text-amber-400 border-amber-500/30";
+            } else {
+                title = "Risiko Tinggi: Berbahaya Bagi Organ Vital";
+                desc = "Pola tidur Anda sangat berisiko memicu masalah kesehatan kronis. Sangat disarankan untuk segera memperbaiki *sleep hygiene* dan prioritaskan istirahat malam 7-8 jam.";
+                badgeClass = "bg-rose-500/20 text-rose-400 border-rose-500/30";
+            }
+
+            quizContainer.innerHTML = `
+                <div class="text-center py-6">
+                    <div class="inline-block px-4 py-1.5 rounded-full text-xs font-bold border ${badgeClass} mb-4">
+                        HASIL SKOR RISIKO
+                    </div>
+                    <h3 class="text-2xl font-extrabold text-white mb-3">${title}</h3>
+                    <p class="text-slate-300 text-sm max-w-xl mx-auto leading-relaxed mb-8">${desc}</p>
+                    
+                    <button onclick="restartQuiz()" class="px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-500 to-rose-500 text-white text-sm font-semibold hover:opacity-90 transition-all flex items-center gap-2 mx-auto">
+                        <i class="fa-solid fa-rotate-right"></i> Ulangi Kuis
+                    </button>
+                </div>
+            `;
+        }
+
+        window.restartQuiz = function() {
+            currentQuestion = 0;
+            quizScore = 0;
+            renderQuiz();
+        };
+
+        renderQuiz();
+    </script>
+</body>
+</html>
